@@ -1,0 +1,262 @@
+/* ===== Student Safety AI — Animations ===== */
+
+/* ===== Homepage animated campus ===== */
+.campus {
+  position: relative; width: 100%; height: 100%; overflow: hidden;
+  background: linear-gradient(180deg, #b8e1ff 0%, #d8f0ff 45%, #e8f8e8 80%, #d8f5d0 100%);
+  border-radius: var(--r-xl);
+}
+
+/* Sun */
+.sun {
+  position: absolute; top: 6%; right: 8%; width: 90px; height: 90px;
+  border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff7cc, var(--yellow-300));
+  box-shadow: 0 0 60px rgba(255,213,74,0.7), 0 0 120px rgba(255,213,74,0.4);
+  animation: sunFloat 6s ease-in-out infinite;
+}
+.sun::before {
+  content: ''; position: absolute; inset: -22px; border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(255,213,74,0.5) 10deg, transparent 20deg, transparent 40deg, rgba(255,213,74,0.5) 50deg, transparent 60deg, transparent 80deg, rgba(255,213,74,0.5) 90deg, transparent 100deg, transparent 120deg, rgba(255,213,74,0.5) 130deg, transparent 140deg, transparent 160deg, rgba(255,213,74,0.5) 170deg, transparent 180deg, transparent 200deg, rgba(255,213,74,0.5) 210deg, transparent 220deg, transparent 240deg, rgba(255,213,74,0.5) 250deg, transparent 260deg, transparent 280deg, rgba(255,213,74,0.5) 290deg, transparent 300deg, transparent 320deg, rgba(255,213,74,0.5) 330deg, transparent 340deg);
+  animation: sunRays 20s linear infinite;
+}
+@keyframes sunFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes sunRays { to { transform: rotate(360deg); } }
+
+/* Clouds */
+.cloud {
+  position: absolute; background: #fff; border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(120,170,210,0.25);
+}
+.cloud::before, .cloud::after {
+  content: ''; position: absolute; background: #fff; border-radius: 50%;
+}
+.cloud-1 { top: 14%; left: -120px; width: 120px; height: 38px; animation: cloudMove 38s linear infinite; }
+.cloud-1::before { width: 55px; height: 55px; top: -28px; left: 18px; }
+.cloud-1::after { width: 42px; height: 42px; top: -22px; left: 62px; }
+.cloud-2 { top: 26%; left: -180px; width: 160px; height: 50px; animation: cloudMove 52s linear infinite; animation-delay: -12s; opacity: 0.9; }
+.cloud-2::before { width: 72px; height: 72px; top: -38px; left: 28px; }
+.cloud-2::after { width: 56px; height: 56px; top: -30px; left: 88px; }
+.cloud-3 { top: 9%; left: -100px; width: 100px; height: 32px; animation: cloudMove 45s linear infinite; animation-delay: -25s; opacity: 0.85; }
+.cloud-3::before { width: 48px; height: 48px; top: -24px; left: 14px; }
+.cloud-3::after { width: 38px; height: 38px; top: -19px; left: 52px; }
+@keyframes cloudMove { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 220px)); } }
+
+/* Birds */
+.bird {
+  position: absolute; width: 24px; height: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 14'%3E%3Cpath d='M1 12 Q6 1 12 7 Q18 1 23 12' stroke='%23334155' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/contain;
+  animation: birdFly 22s linear infinite;
+}
+.bird-1 { top: 20%; animation-delay: 0s; }
+.bird-2 { top: 24%; animation-delay: -7s; transform: scale(0.8); }
+.bird-3 { top: 17%; animation-delay: -14s; transform: scale(1.1); }
+@keyframes birdFly {
+  0% { left: -30px; transform: translateY(0) scale(var(--s,1)); }
+  50% { transform: translateY(-20px) scale(var(--s,1)); }
+  100% { left: calc(100% + 30px); transform: translateY(0) scale(var(--s,1)); }
+}
+.bird-1 { --s: 1; } .bird-2 { --s: 0.8; } .bird-3 { --s: 1.1; }
+
+/* Trees */
+.tree { position: absolute; bottom: 16%; transform-origin: bottom center; }
+.tree-trunk { width: 14px; height: 50px; background: linear-gradient(90deg, #6b4423, #8b5a2b); border-radius: 6px; margin: 0 auto; }
+.tree-crown { width: 90px; height: 90px; background: radial-gradient(circle at 40% 35%, var(--green-300), var(--green-500)); border-radius: 50%; position: relative; top: -6px; box-shadow: 0 10px 24px rgba(13,153,73,0.3); }
+.tree.sway .tree-crown { animation: treeSway 3.5s ease-in-out infinite; transform-origin: bottom center; }
+@keyframes treeSway { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+.tree-1 { left: 8%; } .tree-2 { left: 22%; transform: scale(0.8); } .tree-3 { right: 14%; } .tree-4 { right: 28%; transform: scale(0.85); }
+
+/* Ground */
+.ground {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 18%;
+  background: linear-gradient(180deg, var(--green-300), var(--green-500));
+  border-radius: 50% 50% 0 0 / 30px 30px 0 0;
+}
+.ground::after {
+  content: ''; position: absolute; inset: 0; opacity: 0.5;
+  background: repeating-linear-gradient(90deg, transparent 0 18px, rgba(13,153,73,0.15) 18px 22px);
+}
+
+/* Road */
+.road {
+  position: absolute; bottom: 8%; left: 0; right: 0; height: 36px;
+  background: linear-gradient(180deg, #4a5568, #2d3748);
+}
+.road::before {
+  content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 4px;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(90deg, var(--yellow-300) 0 30px, transparent 30px 60px);
+}
+
+/* School bus */
+.bus {
+  position: absolute; bottom: 9%; left: -120px; width: 110px; height: 56px;
+  animation: busDrive 18s linear infinite;
+}
+.bus-body { position: relative; width: 100%; height: 100%; background: linear-gradient(180deg, var(--yellow-300), var(--yellow-400)); border-radius: 12px 12px 8px 8px; box-shadow: 0 6px 14px rgba(0,0,0,0.2); }
+.bus-body::before { content: ''; position: absolute; top: 8px; left: 10px; right: 10px; height: 18px; background: linear-gradient(180deg, #cfeeff, #a8d8ff); border-radius: 6px; }
+.bus-body::after { content: 'SCHOOL'; position: absolute; top: 30px; left: 0; right: 0; text-align: center; font-family: var(--font-display); font-weight: 700; font-size: 10px; color: var(--neutral-800); }
+.bus-wheel { position: absolute; bottom: -10px; width: 18px; height: 18px; background: #1e293b; border: 3px solid #94a3b8; border-radius: 50%; }
+.bus-wheel-1 { left: 14px; animation: wheelSpin 0.8s linear infinite; }
+.bus-wheel-2 { right: 14px; animation: wheelSpin 0.8s linear infinite; }
+@keyframes wheelSpin { to { transform: rotate(360deg); } }
+@keyframes busDrive { 0% { left: -120px; } 100% { left: calc(100% + 40px); } }
+
+/* Walking children */
+.child {
+  position: absolute; bottom: 16%; width: 22px; height: 50px;
+  animation: childWalk 30s linear infinite;
+}
+.child-head { width: 14px; height: 14px; border-radius: 50%; margin: 0 auto; }
+.child-body { width: 16px; height: 22px; margin: 2px auto 0; border-radius: 8px 8px 4px 4px; }
+.child-legs { display: flex; justify-content: center; gap: 2px; margin-top: 2px; }
+.child-leg { width: 4px; height: 12px; border-radius: 2px; animation: legWalk 0.5s ease-in-out infinite alternate; }
+.child-leg:last-child { animation-delay: 0.25s; }
+@keyframes legWalk { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
+@keyframes childWalk { 0% { left: -30px; } 100% { left: calc(100% + 30px); } }
+.child-1 { bottom: 16%; } .child-1 .child-head { background: #f1c27d; } .child-1 .child-body { background: var(--blue-400); } .child-1 .child-leg { background: #2d3748; }
+.child-2 { bottom: 16%; animation-delay: -8s; } .child-2 .child-head { background: #e0ac69; } .child-2 .child-body { background: var(--coral-400); } .child-2 .child-leg { background: #2d3748; }
+.child-3 { bottom: 16%; animation-delay: -16s; } .child-3 .child-head { background: #c68642; } .child-3 .child-body { background: var(--green-400); } .child-3 .child-leg { background: #2d3748; }
+
+/* School building */
+.school {
+  position: absolute; bottom: 18%; right: 4%; width: 130px; height: 95px;
+  background: linear-gradient(180deg, #ffd6a8, #ffb088); border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.school::before {
+  content: ''; position: absolute; top: -22px; left: 50%; transform: translateX(-50%);
+  width: 0; height: 0; border-left: 75px solid transparent; border-right: 75px solid transparent; border-bottom: 24px solid var(--coral-400);
+}
+.school::after {
+  content: 'SCHOOL'; position: absolute; top: 12px; left: 0; right: 0; text-align: center;
+  font-family: var(--font-display); font-weight: 700; color: var(--neutral-800); font-size: 12px; letter-spacing: 1px;
+}
+.school-window { position: absolute; width: 22px; height: 22px; background: linear-gradient(180deg, #cfeeff, #a8d8ff); border-radius: 4px; border: 2px solid #fff; }
+.school-window-1 { top: 36px; left: 16px; } .school-window-2 { top: 36px; right: 16px; }
+.school-door { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 26px; height: 40px; background: linear-gradient(180deg, #8b5a2b, #6b4423); border-radius: 4px 4px 0 0; }
+
+/* Floating safety icons */
+.float-icon {
+  position: absolute; width: 52px; height: 52px; border-radius: 16px;
+  background: var(--surface-strong); backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow);
+  display: grid; place-items: center; color: var(--blue-500);
+  animation: floatY 5s ease-in-out infinite;
+}
+.float-icon svg { width: 26px; height: 26px; }
+.float-1 { top: 40%; left: 12%; animation-delay: 0s; color: var(--blue-500); }
+.float-2 { top: 55%; right: 18%; animation-delay: -1.5s; color: var(--green-500); }
+.float-3 { top: 68%; left: 24%; animation-delay: -3s; color: var(--coral-500); }
+.float-4 { top: 48%; right: 32%; animation-delay: -2s; color: var(--yellow-500); }
+@keyframes floatY { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-16px) rotate(2deg); } }
+
+/* Particles */
+.particles { position: absolute; inset: 0; pointer-events: none; }
+.particle {
+  position: absolute; width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.7); animation: particleRise 12s linear infinite;
+}
+@keyframes particleRise {
+  0% { transform: translateY(100%) scale(0.5); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* Wave */
+.wave {
+  position: absolute; bottom: 0; left: 0; width: 200%; height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30 Q150 0 300 30 T600 30 T900 30 T1200 30 V60 H0 Z' fill='%2316b85f' opacity='0.4'/%3E%3C/svg%3E") repeat-x;
+  background-size: 1200px 60px; animation: waveMove 8s linear infinite;
+}
+.wave-2 { animation: waveMove 12s linear infinite reverse; opacity: 0.5; bottom: 4px; }
+@keyframes waveMove { from { transform: translateX(0); } to { transform: translateX(-1200px); } }
+
+/* ===== Typing text ===== */
+.typing { border-right: 3px solid var(--blue-500); animation: blink 0.9s step-end infinite; }
+@keyframes blink { 50% { border-color: transparent; } }
+
+/* ===== Pulse markers (map) ===== */
+.pulse-marker { position: relative; width: 18px; height: 18px; border-radius: 50%; }
+.pulse-marker::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: inherit; animation: pulseMarker 1.6s ease-out infinite; }
+@keyframes pulseMarker { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(3); opacity: 0; } }
+
+/* ===== Floating card ===== */
+.float-card { animation: floatCard 4s ease-in-out infinite; }
+@keyframes floatCard { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* ===== Animated counter shimmer ===== */
+.counter-shimmer { background: linear-gradient(90deg, var(--blue-500), var(--green-500), var(--blue-500)); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmerText 3s linear infinite; }
+@keyframes shimmerText { to { background-position: 200% center; } }
+
+/* ===== Mood emoji pop ===== */
+.mood-emoji { transition: transform var(--t); cursor: pointer; }
+.mood-emoji:hover { transform: scale(1.25) rotate(-6deg); }
+.mood-emoji.selected { transform: scale(1.3); filter: drop-shadow(0 8px 18px rgba(31,139,255,0.4)); }
+
+/* ===== Breathing circle ===== */
+.breath-circle {
+  width: 200px; height: 200px; border-radius: 50%; margin: 0 auto;
+  background: radial-gradient(circle at 40% 35%, var(--blue-300), var(--blue-500));
+  box-shadow: 0 0 60px rgba(31,139,255,0.5); display: grid; place-items: center; color: #fff;
+  font-family: var(--font-display); font-weight: 600; font-size: 18px;
+  animation: breathe 8s ease-in-out infinite;
+}
+@keyframes breathe { 0%,100% { transform: scale(0.8); } 50% { transform: scale(1.15); } }
+
+/* ===== Self defence figure ===== */
+.figure-stage { position: relative; height: 320px; background: linear-gradient(160deg, var(--blue-50), var(--green-50)); border-radius: var(--r-lg); overflow: hidden; }
+.skeleton { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); }
+.skeleton-head { width: 40px; height: 40px; border-radius: 50%; background: var(--blue-400); margin: 0 auto; }
+.skeleton-body { width: 12px; height: 80px; background: var(--blue-500); margin: 4px auto 0; border-radius: 6px; }
+.skeleton-arm { position: absolute; width: 8px; height: 60px; background: var(--blue-500); border-radius: 4px; top: 48px; transform-origin: top center; }
+.skeleton-arm-left { left: calc(50% - 16px); }
+.skeleton-arm-right { left: calc(50% + 8px); }
+.skeleton-leg { position: absolute; width: 10px; height: 80px; background: var(--blue-600); border-radius: 5px; top: 130px; transform-origin: top center; }
+.skeleton-leg-left { left: calc(50% - 12px); }
+.skeleton-leg-right { left: calc(50% + 2px); }
+.arrow { position: absolute; font-size: 28px; color: var(--coral-500); animation: arrowPulse 1.2s ease-in-out infinite; font-weight: 700; }
+@keyframes arrowPulse { 0%,100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.3); opacity: 1; } }
+
+/* ===== Route animation ===== */
+.route-line { stroke-dasharray: 8 8; animation: dashMove 1s linear infinite; }
+@keyframes dashMove { to { stroke-dashoffset: -16; } }
+
+/* ===== Bus mini animation (tracking) ===== */
+.bus-mini { animation: busBounce 0.6s ease-in-out infinite alternate; }
+@keyframes busBounce { from { transform: translateY(0); } to { transform: translateY(-4px); } }
+
+/* ===== Glow pulse ===== */
+.glow-pulse { animation: glowPulse 2s ease-in-out infinite; }
+@keyframes glowPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(31,139,255,0.4); } 50% { box-shadow: 0 0 0 14px rgba(31,139,255,0); } }
+
+/* ===== Traffic signal ===== */
+.traffic-light { display: flex; flex-direction: column; gap: 8px; padding: 14px 12px; background: #1e293b; border-radius: 14px; width: 56px; margin: 0 auto; }
+.traffic-light .light { width: 30px; height: 30px; border-radius: 50%; background: #475569; transition: background 0.3s, box-shadow 0.3s; }
+.traffic-light .light.on.red { background: var(--coral-500); box-shadow: 0 0 22px var(--coral-500); }
+.traffic-light .light.on.yellow { background: var(--yellow-400); box-shadow: 0 0 22px var(--yellow-400); }
+.traffic-light .light.on.green { background: var(--green-500); box-shadow: 0 0 22px var(--green-500); }
+
+/* ===== Spin ===== */
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== Slide in ===== */
+@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes slideInLeft { from { transform: translateX(-30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideInRight { from { transform: translateX(30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+.anim-up { animation: slideUp 0.6s var(--ease) both; }
+.anim-left { animation: slideInLeft 0.6s var(--ease) both; }
+.anim-right { animation: slideInRight 0.6s var(--ease) both; }
+
+/* ===== Badge glow ===== */
+.badge-glow { animation: badgeGlow 2.5s ease-in-out infinite; }
+@keyframes badgeGlow { 0%,100% { box-shadow: 0 0 14px rgba(255,193,31,0.4); } 50% { box-shadow: 0 0 28px rgba(255,193,31,0.8); } }
+
+/* ===== Shake (SOS) ===== */
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+.shake { animation: shake 0.4s ease; }
+
+/* ===== Marquee ===== */
+.marquee { display: flex; gap: 40px; animation: marquee 22s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }

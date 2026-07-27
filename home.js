@@ -1,6 +1,6 @@
 // ===== Home page =====
-import { safetyTips, liveAlerts, achievements } from '../dat.js';
-import { store, computeStats, animateCount, initReveal } from '../utils.js';
+import { safetyTips, liveAlerts, achievements } from './dat.js';
+import { store, computeStats, animateCount, initReveal } from './utils.js';
 
 export function renderHome(page, ctx) {
   const state = store.get();

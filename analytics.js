@@ -1,6 +1,6 @@
 // ===== Analytics Dashboard =====
-import { store, computeStats } from '../utils.js';
-import { achievements, moods, safetyScoreFactors } from '../dat.js';
+import { store, computeStats } from './utils.js';
+import { achievements, moods, safetyScoreFactors } from './dat.js';
 
 let charts = [];
 

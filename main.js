@@ -161,7 +161,7 @@ function setupRipples() {
 function setupSOS() {
   const btn = document.getElementById('sosBtn');
   btn.addEventListener('click', () => {
-    import('./pages/emergency.js').then(({ openSOSModal }) => openSOSModal());
+    import('./emergency.js').then(({ openSOSModal }) => openSOSModal());
   });
 }
 

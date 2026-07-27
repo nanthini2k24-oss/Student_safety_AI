@@ -1,6 +1,6 @@
 // ===== School Map page (Leaflet + OpenStreetMap) =====
-import { store, addActivity } from '../utils.js';
-import { mapPoints, busRoutes } from '../dat.js';
+import { store, addActivity } from './utils.js';
+import { mapPoints, busRoutes } from './dat.js';
 
 let leafletMap = null;
 let routeLine = null;

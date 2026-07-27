@@ -1,6 +1,6 @@
 // ===== Safe Journey / Guardian Journey Mode =====
-import { store, addActivity, checkAchievements, computeStats, confetti } from '../utils.js';
-import { mapPoints } from '../dat.js';
+import { store, addActivity, checkAchievements, computeStats, confetti } from './utils.js';
+import { mapPoints } from './dat.js';
 
 let journeyTimer = null;
 let journeyStart = null;

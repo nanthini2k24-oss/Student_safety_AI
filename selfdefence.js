@@ -1,6 +1,6 @@
 // ===== Self Defence Academy =====
-import { store, addActivity, checkAchievements, computeStats, confetti } from '../utils.js';
-import { selfDefenceTechniques, selfDefenceQuiz } from '../dat.js';
+import { store, addActivity, checkAchievements, computeStats, confetti } from './utils.js';
+import { selfDefenceTechniques, selfDefenceQuiz } from './dat.js';
 
 let activeTech = 0;
 let activeStep = 0;

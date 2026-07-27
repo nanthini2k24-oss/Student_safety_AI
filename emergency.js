@@ -1,5 +1,5 @@
 // ===== Emergency Dashboard =====
-import { store, showModal, confetti } from '../utils.js';
+import { store, showModal, confetti } from './utils.js';
 
 let sosActive = false;
 

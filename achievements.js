@@ -1,6 +1,6 @@
 // ===== Achievements page =====
-import { store, computeStats } from '../utils.js';
-import { achievements } from '../dat.js';
+import { store, computeStats } from './utils.js';
+import { achievements } from './dat.js';
 
 export function renderAchievements(page, ctx) {
   const state = store.get();

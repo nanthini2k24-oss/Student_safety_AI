@@ -1,6 +1,6 @@
 // ===== Community Safety Reports =====
-import { store, addActivity, checkAchievements, computeStats, timeAgo, confetti } from '../utils.js';
-import { communityCategories } from '../dat.js';
+import { store, addActivity, checkAchievements, computeStats, timeAgo, confetti } from './utils.js';
+import { communityCategories } from './dat.js';
 
 export function renderCommunity(page, ctx) {
   const state = store.get();

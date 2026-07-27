@@ -1,6 +1,6 @@
 // ===== Mental Wellness page =====
-import { store, addActivity, checkAchievements, computeStats, confetti } from '../utils.js';
-import { breathingExercises, affirmations } from '../dat.js';
+import { store, addActivity, checkAchievements, computeStats, confetti } from './utils.js';
+import { breathingExercises, affirmations } from './dat.js';
 
 let breathTimer = null;
 let breathStep = 0;

@@ -1,6 +1,6 @@
 // ===== Student Dashboard =====
-import { store, computeStats, animateCount, addActivity, checkAchievements, timeAgo } from '../utils.js';
-import { safetyTips, dailyMissions, moods } from '../dat.js';
+import { store, computeStats, animateCount, addActivity, checkAchievements, timeAgo } from './utils.js';
+import { safetyTips, dailyMissions, moods } from './dat.js';
 
 export function renderDashboard(page, ctx) {
   const state = store.get();

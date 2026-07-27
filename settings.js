@@ -1,6 +1,6 @@
 // ===== Settings page =====
-import { store } from '../utils.js';
-import { defaultSettings } from '../dat.js';
+import { store } from './utils.js';
+import { defaultSettings } from './dat.js';
 
 export function renderSettings(page, ctx) {
   const state = store.get();

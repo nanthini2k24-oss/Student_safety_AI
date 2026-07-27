@@ -1,6 +1,6 @@
 // ===== SafeBuddy AI chatbot =====
-import { store, addActivity, checkAchievements, computeStats } from '../utils.js';
-import { safeBuddyTopics, safeBuddyResponses, motivationalQuotes } from '../dat.js';
+import { store, addActivity, checkAchievements, computeStats } from './utils.js';
+import { safeBuddyTopics, safeBuddyResponses, motivationalQuotes } from './dat.js';
 
 export function renderSafeBuddy(page, ctx) {
   page.innerHTML = `

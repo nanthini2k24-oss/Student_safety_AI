@@ -1,6 +1,6 @@
 // ===== Mood Tracker =====
-import { store, addActivity, checkAchievements, computeStats } from '../utils.js';
-import { moods } from '../dat.js';
+import { store, addActivity, checkAchievements, computeStats } from './utils.js';
+import { moods } from './dat.js';
 
 let moodChart = null;
 

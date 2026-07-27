@@ -1,6 +1,6 @@
 // ===== Bus Tracking page =====
-import { store, animateCount, addActivity } from '../utils.js';
-import { busRoutes } from '../dat.js';
+import { store, animateCount, addActivity } from './utils.js';
+import { busRoutes } from './dat.js';
 
 let busAnimTimer = null;
 let currentBusIdx = 0;

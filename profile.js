@@ -1,5 +1,5 @@
 // ===== Profile page =====
-import { store, computeStats } from '../utils.js';
+import { store, computeStats } from './utils.js';
 
 export function renderProfile(page, ctx) {
   const state = store.get();
